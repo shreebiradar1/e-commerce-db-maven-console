@@ -20,8 +20,8 @@ public class ProductManagement extends SQL_Data {
 		while (true) {
 			System.out.println("1.Add Product");
 			System.out.println("2.Search Product");
-			System.out.println("3.Remove Product");
-			System.out.println("4.Display Product");
+			System.out.println("3.Display Product");
+			System.out.println("4.Remove Product");
 			System.out.println("5.Exit");
 
 			int choice = sc.nextInt();
@@ -62,17 +62,8 @@ public class ProductManagement extends SQL_Data {
 						System.out.println(result.getString(i));
 					}
 				}
-			} else if (choice == 3) {
-				// Removing Product
-				System.out.println("\tRemoving Product\n");
-				System.out.println("Enter name : ");
-				String remove = sc.next();
-
-				String query = "Delete from product where name = '" + remove + "';";
-				statement.execute(query);
-				System.out.println("\tProduct Removed Successfull\n");
-
-			} else if (choice == 4) {
+			} 
+			else if (choice == 3) {
 				// Displaying Product
 				System.out.println("\t Displaying Product \n");
 				String display = "Select * from product";
@@ -85,7 +76,20 @@ public class ProductManagement extends SQL_Data {
 					}
 					System.out.println();
 				}
-			} else if (choice == 5) {
+			}
+			else if (choice == 4) {
+				// Removing Product
+				System.out.println("\tRemoving Product\n");
+				System.out.println("Enter name : ");
+				String remove = sc.next();
+
+				String query = "Delete from product where name = '" + remove + "';";
+				statement.execute(query);
+				System.out.println("\tProduct Removed Successfull\n");
+
+			} 
+				
+			else if (choice == 5) {
 				// Exiting product Management
 				System.out.println("\tExisting Product Management\n");
 				connection.close();
