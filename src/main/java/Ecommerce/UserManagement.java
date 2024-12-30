@@ -24,8 +24,8 @@ public class UserManagement extends SQL_Data {
 		while (true) {
 			System.out.println("1.Add User");
 			System.out.println("2.Search User");
-			System.out.println("3.Remove User");
 			System.out.println("4.Display User");
+			System.out.println("4.Remove User");
 			System.out.println("5.Exit");
 
 			int check = scan.nextInt();
@@ -68,18 +68,8 @@ public class UserManagement extends SQL_Data {
 						System.out.println(result.getString(i));
 					}
 				}
-			} else if (check == 3) {
-				System.out.println("\t Removing User \n");
-
-				System.out.println("Enter Username : ");
-				String remove = scan.next();
-
-				String query = "DELETE from user_management.user WHERE user_name = '" + remove + "';";
-				statement.execute(query);
-
-				System.out.println("\t User Removed Successfully \n");
-
-			} else if (check == 4) {
+			} 
+			else if (check == 3) {
 				System.out.println("\t Displaying User \n");
 
 				String query = "SELECT * from user_management.user";
@@ -90,8 +80,21 @@ public class UserManagement extends SQL_Data {
 					for (int i = 1; i < 5; i++) {
 						System.out.println(result.getString(i));
 					}
-				}
 				System.out.println("--------------------");
+				}
+				
+			else if (check == 4) {
+				System.out.println("\t Removing User \n");
+
+				System.out.println("Enter Username : ");
+				String remove = scan.next();
+
+				String query = "DELETE from user_management.user WHERE user_name = '" + remove + "';";
+				statement.execute(query);
+
+				System.out.println("\t User Removed Successfully \n");
+
+			} 
 
 			} else if (check == 5) {
 				connection.close();
