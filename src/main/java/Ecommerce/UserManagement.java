@@ -24,7 +24,7 @@ public class UserManagement extends SQL_Data {
 		while (true) {
 			System.out.println("1.Add User");
 			System.out.println("2.Search User");
-			System.out.println("4.Display User");
+			System.out.println("3.Display User");
 			System.out.println("4.Remove User");
 			System.out.println("5.Exit");
 
